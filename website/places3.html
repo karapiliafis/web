@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="myStyleRocks.css">
+		<style>
+			.slideshow{
+				list-style-type: none;
+			}
+			ul.slideshow li{
+				width:535px;
+				margin-left: auto;
+				margin-right: auto;
+				display:none;
+			}
+			#visible{
+				display:block;
+			}
+			#previous{
+				position:absolute;
+				top: 525px;
+				font-size: 50px;
+			}			
+			#next{
+				position:absolute;
+				top: 525px;
+				right:0px;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navigation">
+			<ul>
+                <li><span class="home.html">menou</span></li>
+                <li><a href="places.html">page1</a></li>
+                <li><a href="places2.html">page2</a></li>
+                <li><a href="places3.html">page3</a></li>
+                <li><a href="references.html">references</a></li>
+            </ul>
+		</div>
+		<div class="content">
+			<h1>Halo Infinite</h1>
+
+			<p>
+				LEGENDARY AND LIBERATED GAME FOR MANY PLAYERS : The next season of Halo begins! To celebrate the 20th anniversary of the series, the multi-player beta version of Halo Infinite is now available and free to play on Xbox and PC. Start your personal Spartan journey today with Season 1, "Heroes of Reach" and stay tuned for upcoming in-game events and exclusive rewards.
+            </p>
+            <p>
+                Game functions : Halo returns to its roots with fair starts, map equipment and teams of 4 players that offer the ultimate arena shooter experience.
+			</p>
+
+			<p>
+				We always believed in heroes. Now is the time to become one. When all hope is lost and the fate of mankind hangs on a rope, the Master Chief is ready to fight against the most ruthless enemy he has ever faced. Wear the armor of humanity's greatest hero, to experience an epic adventure and see the huge Halo Ring up close.
+			</p>
+
+			<ul class="slideshow">
+				<li class="slideshowItem">
+					<img src="photos/3.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/3.2.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/3.3.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/3.4.jpg">
+				</li>
+				
+			</ul>	
+			<a id="previous">&lt;</a>
+			<a id="next">&gt;</a>
+			<br><br><br><br><br><br>
+		</div>
+		<div class="footer">
+			<h4>Created by Evangelos Anastasios Karapiliafi</h4>
+		</div>
+		<script>
+			var showingPlace = 0;
+			var slideshowItemEls = document.getElementsByClassName("slideshowItem");
+			for(var i=0; i<slideshowItemEls.length; i++){
+				console.log(slideshowItemEls[i].innerHTML);
+			}
+			slideshowItemEls[showingPlace].style.display="block";
+			
+			var nextPlace = function(){
+				slideshowItemEls[showingPlace].style.display="none";
+				showingPlace +=1;
+				if(showingPlace===slideshowItemEls.length){
+					showingPlace=0;
+				}
+				slideshowItemEls[showingPlace].style.display="block";
+			}
+			
+			var nextPlaceArrowEl = document.getElementById("next");
+			console.log(nextPlaceArrowEl.innerHTML);
+			nextPlaceArrowEl.addEventListener("click", nextPlace);
+			
+			
+			var previousPlace = function(){
+				slideshowItemEls[showingPlace].style.display="none";
+				showingPlace -=1;
+				if(showingPlace<0){
+					showingPlace=slideshowItemEls.length-1;
+				}
+				slideshowItemEls[showingPlace].style.display="block";
+			}
+			
+			var previousPlaceArrowEl = document.getElementById("previous");
+			console.log(previousPlaceArrowEl.innerHTML);
+			previousPlaceArrowEl.addEventListener("click", previousPlace);
+			
+		</script>
+	</body>
+</html>

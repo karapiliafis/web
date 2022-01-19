@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="myStyleRocks.css">
+		<style>
+			.slideshow{
+				list-style-type: none;
+			}
+			ul.slideshow li{
+				width:535px;
+				margin-left: auto;
+				margin-right: auto;
+				display:none;
+			}
+			#visible{
+				display:block;
+			}
+			#previous{
+				position:absolute;
+				top: 525px;
+				font-size: 50px;
+			}			
+			#next{
+				position:absolute;
+				top: 525px;
+				right:0px;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navigation">
+			<ul>
+                <li><span class="home.html">menou</span></li>
+                <li><a href="places.html">page1</a></li>
+                <li><a href="places2.html">page2</a></li>
+                <li><a href="places3.html">page3</a></li>
+                <li><a href="references.html">references</a></li>
+            </ul>
+		</div>
+		<div class="content">
+			<h1>League of Legends</h1>
+
+			<p>
+				What is League of Legends?League of Legends is a team strategy game in which two teams of five mighty Heroes each clash in an attempt to destroy the opponent's base. Choose from over 140 Heroes, make epic feats, destroy your opponents and tear down Towers to lead your team to victory.
+            </p>
+            <p>
+                Tutorial is the way of playing, where new players are directed to the first start of the game. It is a private online gaming session where players are taught the basic controls and objectives of the game. Custom mode allows players to create their own game that other players can find on a list to join. Players can add computer-controlled champions (bots), set a password and the maximum number of players in the game. CO - OP Vs Ai mode is a game played by regular players against bots. There is a choice for easy or difficult bots, experience and IP (Influence Points) are reduced compared to regular or scoring games. In Normal mode the players themselves wait for the automatic search to match them either with other players (Solo) or as part of a team. The server automatically creates a game and tries to complete it with the players in such a way that both sides have a 50% chance of winning. The player's victories in normal mode as well as the defeats are displayed in public. Ranked mode is the game mode where players of 30lvl level or higher fight and must have at least 16 champions, each can make from 1 ban. Then it is possible, after consultation, to exchange a hero with another hero. After that they come into play.
+			</p>
+
+
+			<ul class="slideshow">
+				<li class="slideshowItem">
+					<img src="photos/2.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/2.2.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/2.3.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/2.4.jpg">
+				
+			</ul>	
+			<a id="previous">&lt;</a>
+			<a id="next">&gt;</a>
+			<br><br><br><br><br><br>
+		</div>
+		<div class="footer">
+			<h4>Created by Evangelos Anastasios Karapiliafi</h4>
+		</div>
+		<script>
+			var showingPlace = 0;
+			var slideshowItemEls = document.getElementsByClassName("slideshowItem");
+			for(var i=0; i<slideshowItemEls.length; i++){
+				console.log(slideshowItemEls[i].innerHTML);
+			}
+			slideshowItemEls[showingPlace].style.display="block";
+			
+			var nextPlace = function(){
+				slideshowItemEls[showingPlace].style.display="none";
+				showingPlace +=1;
+				if(showingPlace===slideshowItemEls.length){
+					showingPlace=0;
+				}
+				slideshowItemEls[showingPlace].style.display="block";
+			}
+			
+			var nextPlaceArrowEl = document.getElementById("next");
+			console.log(nextPlaceArrowEl.innerHTML);
+			nextPlaceArrowEl.addEventListener("click", nextPlace);
+			
+			
+			var previousPlace = function(){
+				slideshowItemEls[showingPlace].style.display="none";
+				showingPlace -=1;
+				if(showingPlace<0){
+					showingPlace=slideshowItemEls.length-1;
+				}
+				slideshowItemEls[showingPlace].style.display="block";
+			}
+			
+			var previousPlaceArrowEl = document.getElementById("previous");
+			console.log(previousPlaceArrowEl.innerHTML);
+			previousPlaceArrowEl.addEventListener("click", previousPlace);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="myStyleRocks.css">
+		<style>
+			.slideshow{
+				list-style-type: none;
+			}
+			ul.slideshow li{
+				width:535px;
+				margin-left: auto;
+				margin-right: auto;
+				display:none;
+			}
+			#visible{
+				display:block;
+			}
+			#previous{
+				position:absolute;
+				top: 525px;
+				font-size: 50px;
+			}			
+			#next{
+				position:absolute;
+				top: 525px;
+				right:0px;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navigation">
+			<ul>
+				<li><span class="home.html">menou</span></li>
+                <li><a href="places.html">page1</a></li>
+                <li><a href="places2.html">page2</a></li>
+                <li><a href="places3.html">page3</a></li>
+                <li><a href="references.html">references</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<h1>God of War Ragnarök</h1>
+
+			<p>
+				The State and Atreus embark on a mythical journey in search of answers and allies before Ragnarök arrives.
+            </p>
+            <p>
+                From Santa Monica Studio comes the sequel to the award-winning God of War (2018). The State and Atreus must travel to each of the Nine Kingdoms in search of answers, as they prepare for the battle of prophecy that will bring the end of the world. Together, the State and Atreus attempt to penetrate the Nine Kingdoms in search of answers, while Asgard's forces prepare for war. During their journey they will explore majestic, mythical landscapes, gather allies from all kingdoms and face formidable enemies in the face of the Scandinavian gods as well as monsters. As Ragnarök's threat diminishes, the State and Atreus will have to choose between the security of their family and the security of the kingdoms.
+			</p>
+
+			<h2>Main characteristics</h2>
+
+			<p>
+				Against destiny:Atreas seeks the knowledge that will help him understand the prophecy of "Loki" and the role he will play in Ragnarök. The State must decide whether to remain a prisoner of its fear of repeating the same mistakes or whether to free itself from its past in order to become the father that Atreas needs.
+			</p>
+			<p>
+				Weapons of war:The Leviathan Ax, the Blades of Chaos and the Shield of the Guardian return with a host of new abilities for Kratos and Atreas. Faced with gods and monsters from the Nine Kingdoms, the State's deadly Spartan skills will be tested as never before as he fights to protect his family.
+			</p>
+			<p>Explore the kingdoms:Travel to dangerous, shocking landscapes and encounter a host of Scandinavian enemy creatures, monsters and gods as the State and Atreus seek answers and allies.
+            </p>
+			<ul class="slideshow">
+				<li class="slideshowItem">
+					<img src="photos/1.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/1.2.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/1.3.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/1.4.jpg">
+				</li>
+				<li class="slideshowItem">
+					<img src="photos/1.5.jpg">
+				</li>
+				
+			</ul>	
+			<a id="previous">&lt;</a>
+			<a id="next">&gt;</a>
+			<br><br><br><br><br><br>
+		</div>
+		<div class="footer">
+			<h4>Created by Evangelos Anastasios Karapiliafi</h4>
+		</div>
+		<script>
+			var showingPlace = 0;
+			var slideshowItemEls = document.getElementsByClassName("slideshowItem");
+			for(var i=0; i<slideshowItemEls.length; i++){
+				console.log(slideshowItemEls[i].innerHTML);
+			}
+			slideshowItemEls[showingPlace].style.display="block";
+			
+			var nextPlace = function(){
+				slideshowItemEls[showingPlace].style.display="none";
+				showingPlace +=1;
+				if(showingPlace===slideshowItemEls.length){
+					showingPlace=0;
+				}
+				slideshowItemEls[showingPlace].style.display="block";
+			}
+			
+			var nextPlaceArrowEl = document.getElementById("next");
+			console.log(nextPlaceArrowEl.innerHTML);
+			nextPlaceArrowEl.addEventListener("click", nextPlace);
+			
+			
+			var previousPlace = function(){
+				slideshowItemEls[showingPlace].style.display="none";
+				showingPlace -=1;
+				if(showingPlace<0){
+					showingPlace=slideshowItemEls.length-1;
+				}
+				slideshowItemEls[showingPlace].style.display="block";
+			}
+			
+			var previousPlaceArrowEl = document.getElementById("previous");
+			console.log(previousPlaceArrowEl.innerHTML);
+			previousPlaceArrowEl.addEventListener("click", previousPlace);
+			
+		</script>
+	</body>
+</html>
